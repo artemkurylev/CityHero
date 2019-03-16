@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace CityHero.Models
 {
-    public partial class CityHeroTestContext : IdentityDbContext
+    public partial class CityHeroTestContext : DbContext
     {
         public CityHeroTestContext()
         {
@@ -251,6 +251,8 @@ namespace CityHero.Models
 
                 entity.Property(e => e.CoordY).HasColumnName("coordY");
             });
+
+
 
             modelBuilder.Entity<Question>(entity =>
             {
