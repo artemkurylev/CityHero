@@ -1,14 +1,12 @@
 ﻿@page
 @model LoginModel
-
 @{
-    ViewData["Title"] = "Авторизация";
+    ViewData["Title"] = "Авторизация пользователя";
 }
 
-<h1 class="h1 text-center">@ViewData["Title"]</h1>
 <div class="login-block">
     <img src="~/images/1.png" class="img-fluid" alt="Scanfcode" width="200">
-    <h1>Введите свои данные</h1>
+    <h1>@ViewData["Title"]</h1>
     <form id="account" method="post">
 		<div asp-validation-summary="All" class="text-danger"></div>
         <div class="form-group">
