@@ -15,15 +15,19 @@ DG.then(function () {
 	marker.addTo(map).bindPopup('Вы кликнули по мне!');
 
 	marker.on('click', function() {
-		$('#popupMenu').addClass('show');
+		$('#popupPlace').addClass('show');
 	});
 
 	marker.on('popupclose', function() {
-		$('#popupMenu').removeClass('show');
+		$('#popupPlace').removeClass('show');
 	});
 
-	$('#popupClose').on('click', function() {
+	$('#popupPlaceClose').on('click', function() {
 		marker.closePopup();
+	});
+
+	$('#btn-question').on('click', function() {
+		$('#popupQuestion').addClass('show');
 	});
 });
 
