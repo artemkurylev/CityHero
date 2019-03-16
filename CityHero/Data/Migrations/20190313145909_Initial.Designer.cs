@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CityHero.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(CityHero.Models.CityHeroTestContext))]
     [Migration("20190313145909_Initial")]
     partial class Initial
     {
