@@ -173,6 +173,7 @@ DG.then(function () {
 
 	$('#popupPlaceClose').on('click', function() {
 		marker.closePopup();
+		$('#popupPlace').removeClass('show');
 	})
 	
 	
