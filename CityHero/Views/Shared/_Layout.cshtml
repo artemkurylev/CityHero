@@ -6,11 +6,11 @@
     <title>@ViewData["Title"] - CityHero</title>
 
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/bootswatch/lumen/bootstrap.min.css" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-href="~/llib/bootswatch/lumen/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
               integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE="/>
@@ -18,44 +18,47 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CityHero</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+	<!-- <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"> -->
+		<!-- <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CityHero</a> -->
+		<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" -->
+				<!-- aria-expanded="false" aria-label="Toggle navigation"> -->
+			<!-- <span class="navbar-toggler-icon"></span> -->
+		<!-- </button> -->
+		<!-- <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"> -->
+			<!-- <partial name="_LoginPartial" /> -->
+			<!-- <div class="navbar-nav flex-grow-1"> -->
+				<!-- <a class="nav-item nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"> -->
+					<!-- <img src="~/images/logo_default.gif" alt="Profile" class="img-fluid rounded" width="30px"> -->
+				<!-- </a> -->
+				<!-- <a class="nav-item nav-link text-dark"><!--asp-area="" asp-controller="Home" asp-action="Privacy" 
+			<!-- </div> -->
+		<!-- </div> -->
+	<!-- </nav> -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">City Hero</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#burger" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - CityHero - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+		<div class="collapse navbar-collapse" id="burger">
+			<partial name="_LoginPartial" />
+			<div class="navbar-nav">
+				<a class="nav-link nav-item"><img src="images/logo_default.gif" alt="Profile" class="img-fluid rounded" width="30px"></a>
+				<a class="nav-link nav-item">Logout</a>
+			</div>
+			<!--<form class="form-inline my-2 my-lg-0">-->
+				<!--<input class="form-control mr-sm-2" type="text" placeholder="Search">-->
+				<!--<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>-->
+			<!--</form>-->
+		</div>
+	</nav>
+	
+    @RenderBody()
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+		<script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
     </environment>
     <environment exclude="Development">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
@@ -72,6 +75,7 @@
         </script>
     </environment>
     <script src="~/js/site.js" asp-append-version="true"></script>
+	
 
     @RenderSection("Scripts", required: false)
 </body>
