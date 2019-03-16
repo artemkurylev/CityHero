@@ -2,8 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-using Microsoft.AspNetCore.Identity;
-
 namespace CityHero.Models
 {
     public partial class CityHeroTestContext : DbContext
@@ -26,7 +24,6 @@ namespace CityHero.Models
         public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
         public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
-        public virtual DbSet<IdentityUser> IdentityUser { get; set; }
         public virtual DbSet<Place> Place { get; set; }
         public virtual DbSet<PlaceArea> PlaceArea { get; set; }
         public virtual DbSet<Point> Point { get; set; }
