@@ -25,6 +25,9 @@ DG.then(function () {
 	$('#popupPlaceClose').on('click', function() {
 		marker.closePopup();
 	});
+	$('#popupQuestionClose').on('click', function() {
+		$('#popupQuestion').removeClass('show');
+	});
 
 	$('#btn-question').on('click', function() {
 		$('#popupQuestion').addClass('show');
