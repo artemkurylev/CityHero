@@ -24,7 +24,9 @@ namespace CityHero.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Place>>> GetPlace()
         {
-            return await _context.Place.ToListAsync();
+            return await _context.Place
+                .Include(p => p.PlaceArea).ThenInclude(pa => pa.Point)
+                .ToListAsync();
         }
 
         // GET: api/Places/5

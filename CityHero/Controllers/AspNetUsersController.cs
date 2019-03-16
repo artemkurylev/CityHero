@@ -31,7 +31,9 @@ namespace CityHero.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<AspNetUsers>> GetAspNetUsers(string id)
         {
-            var aspNetUsers = await _context.AspNetUsers.FindAsync(id);
+            var aspNetUsers = await _context.AspNetUsers
+                .Include( u => u.VisitedPlaces).ThenInclude( vp => vp.Place)
+                .FirstOrDefaultAsync(u => u.Id == id);
 
             if (aspNetUsers == null)
             {
