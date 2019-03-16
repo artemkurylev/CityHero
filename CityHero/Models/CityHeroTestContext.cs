@@ -1,10 +1,13 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace CityHero.Models
 {
-    public partial class CityHeroTestContext : DbContext
+    public partial class CityHeroTestContext : IdentityDbContext
     {
         public CityHeroTestContext()
         {
@@ -24,6 +27,10 @@ namespace CityHero.Models
         public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
         public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+
+        //public virtual DbSet<IdentityUser> IdentityUsers { get; set; }
+
+
         public virtual DbSet<Place> Place { get; set; }
         public virtual DbSet<PlaceArea> PlaceArea { get; set; }
         public virtual DbSet<Point> Point { get; set; }
@@ -33,6 +40,8 @@ namespace CityHero.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            base.OnConfiguring(optionsBuilder);
+
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
@@ -42,6 +51,8 @@ namespace CityHero.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.HasAnnotation("ProductVersion", "2.2.3-servicing-35854");
 
             modelBuilder.Entity<Achievement>(entity =>
