@@ -107,6 +107,15 @@ a.nav-link {
     text-decoration: none;
 }
 
+.progress {
+    width: 80%;
+    position: absolute;
+    top: 82px;
+    left: 10%;
+    background: #bbb;
+    z-index: 10000;
+}
+
 /*************** WINDOWS ***************/
 
 .login-block {
