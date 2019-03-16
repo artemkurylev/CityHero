@@ -4,17 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CityHero</title>
-
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootswatch/lumen/bootstrap.min.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
-              asp-fallback-href="~/llib/bootswatch/lumen/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
-              crossorigin="anonymous"
-              integrity="sha256-eSi1q2PG6J7g7ib17yAaWMcrr5GrtohYChqibrV7PBE="/>
-    </environment>
+	<link rel="stylesheet" href="~/lib/bootswatch/lumen/bootstrap.min.css" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+          crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -35,17 +28,16 @@
 		<!-- </div> -->
 	<!-- </nav> -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">City Hero</a>
+		<a class="navbar-brand" href="/">
+		<img src="~/images/logo.jpg" height="30" class="d-inline-block align-top" alt="">
+		City Hero
+		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#burger" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
 		<div class="collapse navbar-collapse" id="burger">
 			<partial name="_LoginPartial" />
-			<div class="navbar-nav">
-				<a class="nav-link nav-item"><img src="images/logo_default.gif" alt="Profile" class="img-fluid rounded" width="30px"></a>
-				<a class="nav-link nav-item">Logout</a>
-			</div>
 			<!--<form class="form-inline my-2 my-lg-0">-->
 				<!--<input class="form-control mr-sm-2" type="text" placeholder="Search">-->
 				<!--<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>-->

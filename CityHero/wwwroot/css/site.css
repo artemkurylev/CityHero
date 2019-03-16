@@ -106,3 +106,45 @@ a.nav-link {
     color: #404040;
     text-decoration: none;
 }
+
+.progress {
+    width: 80%;
+    position: absolute;
+    top: 82px;
+    left: 10%;
+    background: #bbb;
+    z-index: 10000;
+}
+
+/*************** WINDOWS ***************/
+
+.login-block {
+    background-color:#fff;
+    padding:60px 30%;
+    text-align: center;
+}
+
+.login-block h1 {
+    font-family: Open Sans,sans-serif;
+    color: #96a2b2;
+    letter-spacing:1px;
+    font-size: 22px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.login-block .input-group-addon {
+    font-size: 19px;
+    opacity: .5;
+    margin-right: 10px;
+}
+
+.btn:not(.disabled):hover {
+    margin-top: inherit;
+    border-bottom-width: 4px;
+}
+
+.input-group {
+    align-items: center;
+    justify-content: center;
+}

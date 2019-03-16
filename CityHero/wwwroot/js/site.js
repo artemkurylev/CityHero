@@ -174,11 +174,9 @@ DG.then(function () {
 
 
 
-
-
-
-
-
-
-
-
+function setProgressValue(value) {
+	var bar = $('.progress-bar');
+	bar.attr('aria-valuenow', value);
+	bar.css('width', value + '%');
+	bar.text(value + '%');
+}
