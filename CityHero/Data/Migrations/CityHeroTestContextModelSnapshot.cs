@@ -44,8 +44,7 @@ namespace CityHero.Data.Migrations
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnName("user_id")
-                        .HasMaxLength(450);
+                        .HasColumnName("user_id");
 
                     b.HasKey("Id");
 
@@ -225,7 +224,9 @@ namespace CityHero.Data.Migrations
 
             modelBuilder.Entity("CityHero.Models.Place", b =>
                 {
-                    b.Property<int>("Id");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<float>("CoordX")
                         .HasColumnName("coordX");
@@ -242,7 +243,7 @@ namespace CityHero.Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(10);
+                        .HasMaxLength(100);
 
                     b.HasKey("Id");
 
@@ -251,7 +252,9 @@ namespace CityHero.Data.Migrations
 
             modelBuilder.Entity("CityHero.Models.PlaceArea", b =>
                 {
-                    b.Property<int>("Id");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("PlaceId")
                         .HasColumnName("place_id");
@@ -270,7 +273,9 @@ namespace CityHero.Data.Migrations
 
             modelBuilder.Entity("CityHero.Models.Point", b =>
                 {
-                    b.Property<int>("Id");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<float>("CoordX")
                         .HasColumnName("coordX");
@@ -317,8 +322,7 @@ namespace CityHero.Data.Migrations
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnName("user_id")
-                        .HasMaxLength(450);
+                        .HasColumnName("user_id");
 
                     b.HasKey("Id");
 
@@ -336,8 +340,7 @@ namespace CityHero.Data.Migrations
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnName("user_id")
-                        .HasMaxLength(450);
+                        .HasColumnName("user_id");
 
                     b.HasKey("Id");
 

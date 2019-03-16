@@ -28,7 +28,7 @@ namespace CityHero.Controllers
         {
             var points = _context.Place.ToList();
 
-            Voronoi voronoi = new Voronoi(0.1);
+            Voronoi voronoi = new Voronoi(0);
             List<double> x = new List<double>(), y = new List<double>();
             
             foreach (CityHero.Models.Place point in points)
@@ -36,13 +36,28 @@ namespace CityHero.Controllers
                 x.Add(point.CoordX);
                 y.Add((double)point.CoordY);
             }
-            List<GraphEdge> edges = voronoi.generateVoronoi(x.ToArray(), y.ToArray(), 43.0, 45.0, 47.0, 49.0);
+
+            List<GraphEdge> edges = voronoi.generateVoronoi(
+                x.ToArray(), 
+                y.ToArray(),
+                x.Min() - 1e-5, 
+                x.Max() + 1e-5, 
+                y.Min() - 1e-5, 
+                y.Max() + 1e-5);
             foreach(GraphEdge edge in edges)
             {
                 Point newPoint = new Point { CoordX = (float)edge.x1, CoordY = (float)edge.y1 };
                 _context.Point.Add(newPoint);
+                _context.SaveChanges();
                 PlaceArea placeArea = new PlaceArea { PlaceId = points[edge.site1].Id, PointId = newPoint.Id };
                 _context.PlaceArea.Add(placeArea);
+                _context.SaveChanges();
+                newPoint = new Point { CoordX = (float)edge.x2, CoordY = (float)edge.y2 };
+                _context.Point.Add(newPoint);
+                _context.SaveChanges();
+                placeArea = new PlaceArea { PlaceId = points[edge.site2].Id, PointId = newPoint.Id };
+                _context.PlaceArea.Add(placeArea);
+                _context.SaveChanges();
             }
             return;
         }
