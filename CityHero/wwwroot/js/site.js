@@ -79,7 +79,7 @@ function fillServerInfo( map, user, places ) {
 	let userPlaceIds = [];
 
 	function fillUser( map, user) {
-		let markers = DS.featureGroup();
+		let markers = DG.featureGroup();
 		for ( let vp of user.visitedPlaces) {
 			
 			userPlaceIds.push( vp.place.id);
@@ -95,7 +95,7 @@ function fillServerInfo( map, user, places ) {
 		let polygons = DG.featureGroup();
 		let lines= DG.featureGroup();
 		
-		let markers = DS.featureGroup();
+		let markers = DG.featureGroup();
 		
 		for ( let place of places.slice(0,)){
 			if( excludePoints.indexOf( place.id) == -1 ){
@@ -132,7 +132,7 @@ function fillServerInfo( map, user, places ) {
 
 	}
 
-	fillUser( map, user);
+	//fillUser( map, user);
 	fillPlaces( map, places, userPlaceIds);
 }
 // Write your JavaScript code.
