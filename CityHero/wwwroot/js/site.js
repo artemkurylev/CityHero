@@ -15,6 +15,14 @@ DG.then(function () {
 	marker.addTo(map).bindPopup('Вы кликнули по мне!');
 
 	marker.on('click', function() {
-		alert('message');
+		$('#popupMenu').addClass('show');
+	});
+
+	marker.on('popupclose', function() {
+		$('#popupMenu').removeClass('show');
+	});
+
+	$('#popupClose').on('click', function() {
+		marker.closePopup();
 	})
 });
