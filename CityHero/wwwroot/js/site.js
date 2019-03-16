@@ -104,9 +104,19 @@ function fillServerInfo( map, user, places ) {
 					iconSize: [48, 48]
 				});
 
-				DG.marker([place.coordY, place.coordX ], {
+				var marker = DG.marker([place.coordY, place.coordX ], {
 					//icon: myIcon
-				}).addTo(markers);
+				})
+				
+				marker.addTo(markers);
+
+				marker.on('click', function() {
+					$('#popupPlace').addClass('show');
+				});
+
+				marker.on('popupclose', function() {
+					$('#popupPlace').removeClass('show');
+				});
 				
 				/*
 				const latlngs = [];
