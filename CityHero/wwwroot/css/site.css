@@ -1,62 +1,6 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-/* a.navbar-brand { */
-  /* white-space: normal; */
-  /* text-align: center; */
-  /* word-break: break-all; */
-/* } */
-
-/* /* Sticky footer styles */
-/* -------------------------------------------------- */ 
-/* html { */
-  /* font-size: 14px; */
-/* } */
-/* @media (min-width: 768px) { */
-  /* html { */
-    /* font-size: 16px; */
-  /* } */
-/* } */
-
-/* .border-top { */
-  /* border-top: 1px solid #e5e5e5; */
-/* } */
-/* .border-bottom { */
-  /* border-bottom: 1px solid #e5e5e5; */
-/* } */
-
-/* .box-shadow { */
-  /* box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); */
-/* } */
-
-/* button.accept-policy { */
-  /* font-size: 1rem; */
-  /* line-height: inherit; */
-/* } */
-
-/* /* Sticky footer styles */
-/* -------------------------------------------------- */ 
-/* html { */
-  /* position: relative; */
-  /* min-height: 100%; */
-/* } */
-
-/* body { */
-  /* /* Margin bottom by footer height */ 
-  /* margin-bottom: 60px; */
-/* } */
-/* .footer { */
-  /* position: absolute; */
-  /* bottom: 0; */
-  /* width: 100%; */
-  /* white-space: nowrap; */
-  /* /* Set the fixed height of the footer here */ 
-  /* height: 60px; */
-  /* line-height: 60px; /* Vertically center the text there */ 
-/* } */
-@import "~/lib/bootswatch/lumen/_variables.scss";
-@import "~/lib/bootswatch/lumen/bootstrap.min.css";
-@import "~/lib/bootswatch/lumen/_bootswatch.scss";
+﻿@import "~bootswatch/dist/lumen/_variables.scss";
+@import "~bootswatch/dist/lumen/bootstrap.min.css";
+@import "~bootswatch/dist/lumen/_bootswatch.scss";
 
 .navbar {
     height: 60px;
@@ -64,7 +8,7 @@ for details on configuring this project to bundle and minify static web assets. 
 
 .map-2gis {
     width: 100%;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 60px - 1rem);
 }
 
 #map {
@@ -76,7 +20,7 @@ a.nav-link {
     font-size: 20px;
 }
 
-.popup-menu {
+.popup {
     transition: all .5s linear;
     position: absolute;
     background: #e0e0e0;
@@ -84,14 +28,25 @@ a.nav-link {
     border: 1px solid #404040;
     z-index: 1000;
     top: 154px;
-    left: -35%;
     width: 30%;
     height: calc(100vh - 214px);
     overflow-y: auto;
 }
 
-.popup-menu.show {
+.popup-place {
+    left: -35%;
+}
+
+.popup-question {
+    left: -35%;
+}
+
+.popup-place.show {
     left: 1%;
+}
+
+.popup-question.show {
+    left: 69%;
 }
 
 .popup-close {
@@ -107,16 +62,11 @@ a.nav-link {
     text-decoration: none;
 }
 
-.progress {
+#btn-question {
     width: 80%;
-    position: absolute;
-    top: 82px;
-    left: 10%;
-    background: #bbb;
-    z-index: 10000;
 }
 
-/*************** WINDOWS ***************/
+/*WINDOWS*/
 
 .login-block {
     background-color:#fff;
@@ -147,4 +97,13 @@ a.nav-link {
 .input-group {
     align-items: center;
     justify-content: center;
+}
+
+.progress {
+    width: 80%;
+    position: absolute;
+    top: 82px;
+    left: 10%;
+    background: #bbb;
+    z-index: 10000;
 }
