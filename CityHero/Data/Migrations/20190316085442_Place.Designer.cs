@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CityHero.Data.Migrations
 {
     [DbContext(typeof(CityHeroTestContext))]
-    [Migration("20190316080610_init2")]
-    partial class init2
+    [Migration("20190316085442_Place")]
+    partial class Place
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
