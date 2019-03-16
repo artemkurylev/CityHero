@@ -103,6 +103,9 @@ function fillServerInfo( map, user, places ) {
 					iconUrl: '../images/marker-red.png',
 					iconSize: [48, 48]
 				});
+				
+				$('#name-place').text(place.name);
+				$('#desc-place').text(place.description);
 
 				var marker = DG.marker([place.coordY, place.coordX ], {
 					//icon: myIcon
