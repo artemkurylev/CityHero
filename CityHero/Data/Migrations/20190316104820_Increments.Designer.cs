@@ -4,14 +4,16 @@ using CityHero.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CityHero.Data.Migrations
 {
     [DbContext(typeof(CityHeroTestContext))]
-    partial class CityHeroTestContextModelSnapshot : ModelSnapshot
+    [Migration("20190316104820_Increments")]
+    partial class Increments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

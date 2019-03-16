@@ -62,14 +62,17 @@ namespace CityHero.Models
             {
                 entity.ToTable("answered_questions");
 
+                entity.HasIndex(e => e.QuestionId);
+
+                entity.HasIndex(e => e.UserId);
+
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.QuestionId).HasColumnName("question_id");
 
                 entity.Property(e => e.UserId)
                     .IsRequired()
-                    .HasColumnName("user_id")
-                    .HasMaxLength(450);
+                    .HasColumnName("user_id");
 
                 entity.HasOne(d => d.Question)
                     .WithMany(p => p.AnsweredQuestions)
@@ -194,8 +197,6 @@ namespace CityHero.Models
             {
                 entity.ToTable("place");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CoordX).HasColumnName("coordX");
 
                 entity.Property(e => e.CoordY).HasColumnName("coordY");
@@ -208,14 +209,16 @@ namespace CityHero.Models
 
                 entity.Property(e => e.Name)
                     .IsRequired()
-                    .HasMaxLength(10);
+                    .HasMaxLength(100);
             });
 
             modelBuilder.Entity<PlaceArea>(entity =>
             {
                 entity.ToTable("place_area");
 
-                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.HasIndex(e => e.PlaceId);
+
+                entity.HasIndex(e => e.PointId);
 
                 entity.Property(e => e.PlaceId).HasColumnName("place_id");
 
@@ -236,8 +239,6 @@ namespace CityHero.Models
 
             modelBuilder.Entity<Point>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.CoordX).HasColumnName("coordX");
 
                 entity.Property(e => e.CoordY).HasColumnName("coordY");
@@ -267,6 +268,8 @@ namespace CityHero.Models
 
             modelBuilder.Entity<Test>(entity =>
             {
+                entity.HasIndex(e => e.UserId);
+
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.Name)
@@ -275,8 +278,7 @@ namespace CityHero.Models
 
                 entity.Property(e => e.UserId)
                     .IsRequired()
-                    .HasColumnName("user_id")
-                    .HasMaxLength(450);
+                    .HasColumnName("user_id");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Test)
@@ -289,14 +291,17 @@ namespace CityHero.Models
             {
                 entity.ToTable("visited_places");
 
+                entity.HasIndex(e => e.PlaceId);
+
+                entity.HasIndex(e => e.UserId);
+
                 entity.Property(e => e.Id).ValueGeneratedNever();
 
                 entity.Property(e => e.PlaceId).HasColumnName("place_id");
 
                 entity.Property(e => e.UserId)
                     .IsRequired()
-                    .HasColumnName("user_id")
-                    .HasMaxLength(450);
+                    .HasColumnName("user_id");
 
                 entity.HasOne(d => d.Place)
                     .WithMany(p => p.VisitedPlaces)
