@@ -169,7 +169,6 @@ DG.then(function () {
 			user => fillServerInfo( map, user, pls)
 		)
 	)
-	});
 	
 	$('#popupQuestionClose').on('click', function() {
 		$('#popupQuestion').removeClass('show');
