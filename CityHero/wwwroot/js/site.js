@@ -175,7 +175,8 @@ DG.then(function () {
 	});
 
 	$('#btn-question').on('click', function() {
-		$('#popupQuestion').addClass('show');
+		$('#btn-question').removeClass('btn-secondary');
+		$('#btn-question').addClass('btn-success');
 	});
 });
 
