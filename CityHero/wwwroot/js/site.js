@@ -24,5 +24,12 @@ DG.then(function () {
 
 	$('#popupClose').on('click', function() {
 		marker.closePopup();
-	})
+	});
 });
+
+function setProgressValue(value) {
+	var bar = $('.progress-bar');
+	bar.attr('aria-valuenow', value);
+	bar.css('width', value + '%');
+	bar.text(value + '%');
+}
